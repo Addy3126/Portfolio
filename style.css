@@ -2,25 +2,85 @@
 
 body{
     margin: 0;
+    /* overflow-x: hidden; */
+    background: #F2F1EB;
+    
 }
 .name_sec{
     background: #F2F1EB;
-    position: absolute;
-    width: 100%;
-    height: auto;
+    position: relative;
     font-family: 'Roseritta', sans-serif;
-                                                
-}
-.tedt{
-    width: 100%;
-    height: 200px;
-    background: black;
-    position: absolute;
+    padding: 10%;                                          
 }
 .name_main{
-    color: #88AB8E;
-    font-size: 8em;
+    color: #588660;
+    font-size: 6.5em;
     width: 50%;
 }
-
+.circle{
+    height: 100px;
+    width: 100px;
+    background-color: #111;
+    border-radius: 50%;
+    position: absolute;
+    display: inline-block;
+    transition: 3000ms ease-in-out;
+}
+.navigation{
+    position: fixed;
+    right: 0;
+    top: 30%;
+    display: flex;
+}
+.navtextplaceholder{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 15em;
+}
+.nav_text{
+    float: right;
+    color: #AFC8AD;
+    font-size: 2em;
+    font-family: 'Roseritta', sans-serif;
+    transition: 300ms ease;
+    display: flex;
+}
+.nav_text:hover{
+    font-size: 2.5em;
+    color: #588660;
+}
+.navtextdot{
+    height: 0.5em;
+    width: 0.5em;
+    border-radius: 50%;
+    background: #AFC8AD;
+    margin: 15px -25px 15px 20px;
+}
+body:has(.nav_text:hover) .navtextdot{
+    height: 1em;
+    width: 1em;
+}
+.nav_scroll{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.navscrollbar{
+    width: 3px;
+    background: #AFC8AD;
+    margin: 15px 20px;
+}
+.footercon{
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    height:9.5em;
+}
+.footername{
+    color: #afc8ada2;
+    font-size: 14em;
+    font-family: 'Roseritta', sans-serif;
+}
                 
