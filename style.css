@@ -28,49 +28,31 @@ body{
 }
 .navigation{
     position: fixed;
-    right: 0;
-    top: 30%;
+    right: 20px;
+    top: 50%;
     display: flex;
+    transform: translate(0, -50%);
+}
+.navigation::before{
+    
 }
 .navtextplaceholder{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
-    height: 15em;
+    height: 12em;
 }
 .nav_text{
     float: right;
     color: #AFC8AD;
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: 'Roseritta', sans-serif;
-    transition: 300ms ease;
-    display: flex;
+    transition: 200ms ease;
 }
 .nav_text:hover{
-    font-size: 2.5em;
+    font-size: 2em;
     color: #588660;
-}
-.navtextdot{
-    height: 0.5em;
-    width: 0.5em;
-    border-radius: 50%;
-    background: #AFC8AD;
-    margin: 15px -25px 15px 20px;
-}
-body:has(.nav_text:hover) .navtextdot{
-    height: 1em;
-    width: 1em;
-}
-.nav_scroll{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.navscrollbar{
-    width: 3px;
-    background: #AFC8AD;
-    margin: 15px 20px;
 }
 .footercon{
     position: relative;
