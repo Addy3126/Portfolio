@@ -1,19 +1,54 @@
 @import url('https://fonts.cdnfonts.com/css/roseritta');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+::-webkit-scrollbar{
+    display: none;
+}
+
+html{
+    cursor: crosshair; /*removes cursor on webpage */
+}
 body{
     margin: 0;
     /* overflow-x: hidden; */
-    background: #F2F1EB;
-    
+    background: #191919;
+    scroll-behavior: smooth;
+}
+
+.cursorCustom{
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    border: #EEE7DA 2px solid;
+    border-radius: 50%;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.header{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    z-index: 1;
+    font-size: 1.2em;
+    font-family: 'Century Gothic',sans-serif;
+    color:#EEE7DA;
+}
+.headerItem ul{
+    list-style-type: none;
 }
 .name_sec{
-    background: #F2F1EB;
+    background: #191919;
     position: relative;
     font-family: 'Roseritta', sans-serif;
-    padding: 10%;                                          
+    padding: 10%;                                     
 }
 .name_main{
-    color: #588660;
+    color: #EEE7DA;
     font-size: 6.5em;
     width: 50%;
 }
@@ -34,7 +69,22 @@ body{
     transform: translate(0, -50%);
 }
 .navigation::before{
-    
+    content: " ";
+    position: absolute;
+    background-color: #EEE7DA;
+    height: 200%;
+    width: 1.5px;
+    top: -210%;
+    right: 20%;
+}
+.navigation::after{
+    content: " ";
+    position: absolute;
+    background-color: #EEE7DA;
+    height: 200%;
+    width: 1.5px;
+    bottom: -210%;
+    right: 20%;
 }
 .navtextplaceholder{
     display: flex;
@@ -42,26 +92,28 @@ body{
     align-items: flex-end;
     justify-content: space-between;
     height: 12em;
+    width: 10em;
 }
 .nav_text{
     float: right;
-    color: #AFC8AD;
+    color: #EEE7DA;
     font-size: 1.5em;
     font-family: 'Roseritta', sans-serif;
     transition: 200ms ease;
 }
 .nav_text:hover{
     font-size: 2em;
-    color: #588660;
+    color: #ffffff;
 }
 .footercon{
     position: relative;
     text-align: center;
     overflow: hidden;
     height:9.5em;
+    background-color: #191919;
 }
 .footername{
-    color: #afc8ada2;
+    color: #eee7da19;
     font-size: 14em;
     font-family: 'Roseritta', sans-serif;
 }
