@@ -1,18 +1,22 @@
 @import url('https://fonts.cdnfonts.com/css/roseritta');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial&display=swap');
+
 
 ::-webkit-scrollbar{
     display: none;
 }
 
 html{
-    cursor: crosshair; /*removes cursor on webpage */
+    cursor: none; /*removes cursor on webpage */
+    -webkit-font-smoothing: antialiased;
 }
 body{
     margin: 0;
     /* overflow-x: hidden; */
     background: #191919;
     scroll-behavior: smooth;
+    font-family: 'Poppins',sans-serif;
 }
 
 .cursorCustom{
@@ -22,44 +26,29 @@ body{
     border: #EEE7DA 2px solid;
     border-radius: 50%;
     pointer-events: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     transform: translate(-50%, -50%);
     z-index: 10;
+    transition: background-color 100ms ease;
 }
 .header{
     position: absolute;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 80%;
     z-index: 1;
-    font-size: 1.2em;
-    font-family: 'Century Gothic',sans-serif;
+    font-size: 1em;
     color:#EEE7DA;
+    font-weight: 200;
 }
 .headerItem ul{
     list-style-type: none;
 }
-.name_sec{
-    background: #191919;
-    position: relative;
-    font-family: 'Roseritta', sans-serif;
-    padding: 10%;                                     
-}
-.name_main{
-    color: #EEE7DA;
-    font-size: 6.5em;
-    width: 50%;
-}
-.circle{
-    height: 100px;
-    width: 100px;
-    background-color: #111;
-    border-radius: 50%;
-    position: absolute;
-    display: inline-block;
-    transition: 3000ms ease-in-out;
+body:has(.headerItem:hover) .cursorCustom{
+    background-color: #EEE7DA;
+    mix-blend-mode: difference;
 }
 .navigation{
     position: fixed;
@@ -67,6 +56,8 @@ body{
     top: 50%;
     display: flex;
     transform: translate(0, -50%);
+    z-index: 9;
+    mix-blend-mode: difference;
 }
 .navigation::before{
     content: " ";
@@ -100,10 +91,91 @@ body{
     font-size: 1.5em;
     font-family: 'Roseritta', sans-serif;
     transition: 200ms ease;
+    display: flex;
+}
+.nav_text::after{
+    content: " ";
+    height: 1px;
+    width: 0;
+    background-color: #FFFFFF;
+    margin: 0.55em 0 0 0.3em;
+    transition: 300ms ease;
 }
 .nav_text:hover{
-    font-size: 2em;
     color: #ffffff;
+}
+.nav_text:hover::after{
+    width: 50px;
+}
+.name_sec{
+    background: #191919;
+    position: relative;
+    padding: 10%;
+    color: #EEE7DA;
+    list-style-type: none;
+    animation: fadeout-name_sec linear forwards;
+    animation-timeline: view();
+    animation-range-start: exit;
+    animation-range-end: exit 300px;
+}
+@keyframes fadeout-name_sec{
+    to{opacity: 0;}
+}
+.name_mainText li{
+    animation: fadeout-name_mainText linear forwards;
+    animation-timeline: view();
+    animation-range-start: exit -150px;
+    animation-range-end: exit 200px;
+}
+@keyframes fadeout-name_mainText{
+    to{transform:translateY(50px) ;}
+}
+.name_mainText{
+    font-size: 6.5em;
+    width: 50%;
+    font-family: 'Roseritta', sans-serif;
+}
+.name_sec h3{
+    font-weight: 200;
+}
+.circle{
+    height: 1px;
+    width: 1px;
+    background-color: #EEE7DA;
+    opacity: .25;
+    border-radius: 50%;
+    position: absolute;
+    left: -200px;
+    bottom: 0;
+    z-index: 1;
+    box-shadow: #EEE7DA 0 0 150px 150px;
+    animation: pulsating-nameSec 3.5s alternate infinite, movement-circle-namesec 9s alternate infinite; 
+}
+@keyframes pulsating-nameSec{
+    0%{ transform: scale(1.0); opacity: .25}
+    100%{ transform: scale(1.2) ; opacity: .45;}
+}
+@keyframes movement-circle-namesec{
+    0%{left:-200px;bottom:0}
+    25%{left:-150px; bottom:0}
+    50%{left: -100px; bottom: -30px;}
+    75%{left:-150px; bottom: -70px;}
+    100%{left:-200px; bottom: -70px;}
+}
+.aboutSec{
+    float: right;
+    width: 60%;
+    margin-right: 20%;
+    padding: 5% 0;
+    color: #EEE7DA;
+}
+.aboutSec h4{
+    float: right;
+    font-weight: 200;
+}
+.space{
+    background-color: #191919;
+    height: 50em;
 }
 .footercon{
     position: relative;
@@ -111,6 +183,7 @@ body{
     overflow: hidden;
     height:9.5em;
     background-color: #191919;
+    z-index: 9;
 }
 .footername{
     color: #eee7da19;
