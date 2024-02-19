@@ -7,7 +7,10 @@
 ::-webkit-scrollbar{
     display: none;
 }
-
+::selection{
+    background-color: #EEE7DA;
+    color: #191919;
+}
 html{
     cursor: none; /*removes cursor on webpage */
     -webkit-font-smoothing: antialiased;
@@ -26,6 +29,7 @@ body{
     height: 40px;
     border: #EEE7DA 2px solid;
     border-radius: 50%;
+    mix-blend-mode: difference;
     pointer-events: none;
     position: fixed;
     top: 0;
@@ -136,21 +140,22 @@ body:has(.headerItem:hover) .cursorCustom{
     width: 50%;
     font-family: 'Roseritta', sans-serif;
 }
-.name_sec h3{
+.name_sec h2{
     font-weight: 200;
 }
-.circle{
+.glowNameSec{
+    position: absolute;
     height: 1px;
     width: 1px;
-    background-color: #EEE7DA;
-    opacity: .25;
     border-radius: 50%;
-    position: absolute;
+    opacity: .25;
+    z-index: 1;
+    transition: all 200ms ease;
+    background-color: #EEE7DA;
+    box-shadow: #EEE7DA 0 0 150px 150px;
     left: -200px;
     bottom: 0;
-    z-index: 1;
-    box-shadow: #EEE7DA 0 0 150px 150px;
-    animation: pulsating-nameSec 3.5s alternate infinite, movement-circle-namesec 9s alternate infinite; 
+    animation: pulsating-nameSec 3.5s alternate infinite, movement-circle-namesec 10s alternate infinite; 
 }
 @keyframes pulsating-nameSec{
     0%{ transform: scale(1.0); opacity: .25}
@@ -165,14 +170,26 @@ body:has(.headerItem:hover) .cursorCustom{
 }
 .aboutSec{
     float: right;
-    width: 60%;
+    width: 50%;
     margin-right: 20%;
     padding: 5% 0;
-    color: #EEE7DA;
+    text-align: right;
 }
-.aboutSec h4{
-    float: right;
+.aboutSec h2{
+    display: inline;
     font-weight: 200;
+    color: rgba(105, 105, 105, 0.4);
+    background-image: linear-gradient(#EEE7DA, #EEE7DA);
+    background-clip: text;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    animation: scrollReveal linear forwards;
+    animation-timeline: view();
+    animation-range-start: entry 110%;
+    animation-range-end: exit -10%;
+}
+@keyframes scrollReveal{
+    to{background-size: 100% 100%;}
 }
 .space{
     background-color: #191919;
