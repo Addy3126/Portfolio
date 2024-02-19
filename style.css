@@ -22,7 +22,16 @@ body{
     scroll-behavior: smooth;
     font-family: 'Poppins',sans-serif;
 }
+.loader{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #FFFFFF;
+    z-index: 2;
+}
+.lCover{
 
+}
 .cursorCustom{
     background-color: transparent;
     width: 40px;
@@ -174,18 +183,23 @@ body:has(.headerItem:hover) .cursorCustom{
     margin-right: 20%;
     padding: 5% 0;
     text-align: right;
+    animation: scrollTransalte linear forwards;
+}
+@keyframes scrollTransalte{
+    to{transform: translateY(30%);}
 }
 .aboutSec h2{
     display: inline;
     font-weight: 200;
-    color: rgba(105, 105, 105, 0.4);
+    /* color: rgba(105, 105, 105, 0.4); */
+    color: transparent;
     background-image: linear-gradient(#EEE7DA, #EEE7DA);
     background-clip: text;
     background-repeat: no-repeat;
     background-size: 0% 100%;
     animation: scrollReveal linear forwards;
     animation-timeline: view();
-    animation-range-start: entry 110%;
+    animation-range-start: entry 100%;
     animation-range-end: exit -10%;
 }
 @keyframes scrollReveal{
