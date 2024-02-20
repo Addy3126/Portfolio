@@ -22,6 +22,9 @@ body{
     scroll-behavior: smooth;
     font-family: 'Poppins',sans-serif;
 }
+/* body *{
+    z-index: 2;
+} */
 .loader{
     position: absolute;
     height: 100%;
@@ -30,7 +33,7 @@ body{
     z-index: 2;
 }
 .lCover{
-
+    
 }
 .cursorCustom{
     background-color: transparent;
@@ -47,12 +50,20 @@ body{
     z-index: 10;
     transition: background-color 100ms ease;
 }
+.glassBackdrop{
+    position: fixed;
+    height: 200%;
+    width: 200%;
+    top:-50%;
+    backdrop-filter: blur(100px);
+    z-index: 1;
+}
 .header{
     position: absolute;
     display: flex;
     justify-content: space-between;
     width: 80%;
-    z-index: 1;
+    z-index: 3;
     font-size: 1em;
     color:#EEE7DA;
     font-weight: 200;
@@ -122,7 +133,6 @@ body:has(.headerItem:hover) .cursorCustom{
     width: 50px;
 }
 .name_sec{
-    background: #191919;
     position: relative;
     padding: 10%;
     color: #EEE7DA;
@@ -152,45 +162,55 @@ body:has(.headerItem:hover) .cursorCustom{
 .name_sec h2{
     font-weight: 200;
 }
-.glowNameSec{
+/* .glowObject{
     position: absolute;
-    height: 1px;
-    width: 1px;
+    left: -100px;
+    top: 40%;
+    height: 200px;
+    width: 200px;
     border-radius: 50%;
-    opacity: .25;
-    z-index: 1;
-    transition: all 200ms ease;
-    background-color: #EEE7DA;
-    box-shadow: #EEE7DA 0 0 150px 150px;
-    left: -200px;
-    bottom: 0;
-    animation: pulsating-nameSec 3.5s alternate infinite, movement-circle-namesec 10s alternate infinite; 
+    z-index: 0;
+    opacity: 0.7;
+    background: linear-gradient(to left,#c8a834, white);
+    animation: pulsating-nameSec 5s linear infinite; 
 }
 @keyframes pulsating-nameSec{
-    0%{ transform: scale(1.0); opacity: .25}
-    100%{ transform: scale(1.2) ; opacity: .45;}
-}
-@keyframes movement-circle-namesec{
-    0%{left:-200px;bottom:0}
-    25%{left:-150px; bottom:0}
-    50%{left: -100px; bottom: -30px;}
-    75%{left:-150px; bottom: -70px;}
-    100%{left:-200px; bottom: -70px;}
-}
+    0%{ rotate: 0deg;}
+    50%{scale: 1 1.5;}
+    100%{ rotate: 360deg;}
+} */
 .aboutSec{
+    display: flex;
+    padding: 10% 0;
+}
+.aboutSecHeading{
+    padding: 0 5%;
+    width: 15%;
+}
+.aboutSecHeading ul{
+    position: sticky;
+    top: 30%;
+    bottom: 500px;
+    margin: 0;
+    text-align: right;
+    list-style-type: none;
+    color: #EEE7DA;
+    font-family: 'Roseritta', sans-serif;
+    font-size: 4em;
+    font-weight: 400;
+}
+.aboutSecText{
     float: right;
     width: 50%;
-    margin-right: 20%;
-    padding: 5% 0;
-    text-align: right;
-    animation: scrollTransalte linear forwards;
+    height: 50em;
 }
-@keyframes scrollTransalte{
-    to{transform: translateY(30%);}
-}
-.aboutSec h2{
+.aboutSecText p{
+    position: sticky;
+    top: 30%;
+    margin: 0;
+    font-size: 1.3em;
     display: inline;
-    font-weight: 200;
+    font-weight: 300;
     /* color: rgba(105, 105, 105, 0.4); */
     color: transparent;
     background-image: linear-gradient(#EEE7DA, #EEE7DA);
@@ -199,15 +219,15 @@ body:has(.headerItem:hover) .cursorCustom{
     background-size: 0% 100%;
     animation: scrollReveal linear forwards;
     animation-timeline: view();
-    animation-range-start: entry 100%;
-    animation-range-end: exit -10%;
+    animation-range-start: entry 220%;
+    animation-range-end: exit 100%;
 }
 @keyframes scrollReveal{
     to{background-size: 100% 100%;}
 }
 .space{
     background-color: #191919;
-    height: 50em;
+    height: 20em;
 }
 .footercon{
     position: relative;
