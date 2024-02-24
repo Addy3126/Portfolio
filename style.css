@@ -22,18 +22,16 @@ body{
     scroll-behavior: smooth;
     font-family: 'Poppins',sans-serif;
 }
-/* body *{
-    z-index: 2;
-} */
 .loader{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: #FFFFFF;
-    z-index: 2;
+    display: inline;
+    position: fixed;
 }
-.lCover{
-    
+.loaderItem{
+    position: relative;
+    height: 100px;
+    width: 300px;
+    background: linear-gradient(to left, white, black);
+    z-index: 99;
 }
 .cursorCustom{
     background-color: transparent;
@@ -50,14 +48,14 @@ body{
     z-index: 10;
     transition: background-color 100ms ease;
 }
-.glassBackdrop{
+/* .glassBackdrop{
     position: fixed;
     height: 200%;
     width: 200%;
     top:-50%;
     backdrop-filter: blur(100px);
     z-index: 1;
-}
+} */
 .header{
     position: absolute;
     display: flex;
@@ -145,6 +143,11 @@ body:has(.headerItem:hover) .cursorCustom{
 @keyframes fadeout-name_sec{
     to{opacity: 0;}
 }
+.nameMainTextHollow{
+    display: inline;
+    -webkit-text-stroke: 0.5px #EEE7DA;
+    color: transparent;
+}
 .name_mainText li{
     animation: fadeout-name_mainText linear forwards;
     animation-timeline: view();
@@ -211,8 +214,8 @@ body:has(.headerItem:hover) .cursorCustom{
     font-size: 1.3em;
     display: inline;
     font-weight: 300;
-    /* color: rgba(105, 105, 105, 0.4); */
-    color: transparent;
+    color: rgba(105, 105, 105, 0.2);
+    /* color: transparent; */
     background-image: linear-gradient(#EEE7DA, #EEE7DA);
     background-clip: text;
     background-repeat: no-repeat;
