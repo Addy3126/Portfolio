@@ -25,25 +25,26 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 //Local Time
-let date = new Date();
-let options = {timeZone: 'Asia/Kolkata'};
-let localTime = date.toLocaleTimeString('en-US', options);
-let shortLocalTime = localTime.slice(0,5);
-let x = localTime.slice(9,11);
-shortLocalTime = shortLocalTime.concat(" ",x," GMT +5:30");
-document.querySelector(".header_LocalTime").innerText = shortLocalTime;
-
 function localTimeUpdate(){
+  let timePeriod = "AM";
   let date = new Date();
-  let options = {timeZone: 'Asia/Kolkata'};
-  let localTime = date.toLocaleTimeString('en-US', options);
-  let shortLocalTime = localTime.slice(0,5);
-  let x = localTime.slice(9,11);
-  shortLocalTime = shortLocalTime.concat(" ",x," GMT +5:30");
+  let localHours = date.getUTCHours() + 5;
+  let localMinutes = date.getUTCMinutes() + 30;
+  if(localMinutes>59){
+    localHours += 1;
+    localMinutes -= 60;
+    if(localMinutes<10){localMinutes = "0".concat(localMinutes)}
+  }
+  if(localHours>12){
+    timePeriod = "PM";
+    localHours -= 12;
+    if(localHours<10){localHours = "0".concat(localHours)}
+  }
+  let shortLocalTime = "".concat(localHours,":",localMinutes," ",timePeriod," GMT +5:30")
   document.querySelector(".header_LocalTime").innerText = shortLocalTime;
-  console.log(localTime)
+  console.log(localHours);
 }
-setInterval(localTimeUpdate, 60000);
+setInterval(localTimeUpdate, 1000);
 
 // //Shuffle Effect
 // const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -63,19 +64,3 @@ setInterval(localTimeUpdate, 60000);
 //   iterations +=1/3;
 // }, 50);
 // }
-//Random circle 
-// function moveDiv() {
-//     var $span = $(".circle");
-
-//     $span.fadeOut(1000, function() {
-//         var maxLeft = $(window).width() - $span.width();
-//         var maxTop = $(window).height() - $span.height();
-//         var leftPos = Math.floor(Math.random() * (maxLeft + 1))
-//         var topPos = Math.floor(Math.random() * (maxTop + 1))
-
-//         $span.css({ left: leftPos, top: topPos }).fadeIn(1000);
-//     });
-// };
-
-// moveDiv();
-// setInterval(moveDiv, 5000);
