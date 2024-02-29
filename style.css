@@ -75,7 +75,7 @@ body{
     left: 0;
     transform: translate(-50%, -50%);
     z-index: 10;
-    transition: background-color 100ms ease;
+    transition: background-color 100ms ease, height 300ms ease, width 300ms ease;
 }
 /* .glassBackdrop{
     position: fixed;
@@ -103,18 +103,16 @@ body:has(.headerItem:hover) .cursorCustom{
     mix-blend-mode: difference;
 }
 .navigation{
-    position: fixed;
+    position: absolute;
     right: 20px;
     top: 50%;
     display: flex;
     transform: translate(0, -50%);
-    z-index: 9;
-    mix-blend-mode: difference;
 }
 .navigation::before{
     content: " ";
     position: absolute;
-    background-color: #EEE7DA;
+    background: linear-gradient(to top,#EEE7DA, transparent 40%);
     height: 200%;
     width: 1.5px;
     top: -210%;
@@ -123,7 +121,7 @@ body:has(.headerItem:hover) .cursorCustom{
 .navigation::after{
     content: " ";
     position: absolute;
-    background-color: #EEE7DA;
+    background: linear-gradient(to bottom,#EEE7DA, transparent 40%);
     height: 200%;
     width: 1.5px;
     bottom: -210%;
@@ -158,6 +156,11 @@ body:has(.headerItem:hover) .cursorCustom{
 }
 .nav_text:hover::after{
     width: 50px;
+}
+body:has(.nav_text:hover) .cursorCustom{
+    height: 5px;
+    width: 5px;
+    background: #EEE7DA;
 }
 .name_sec{
     position: relative;
@@ -194,8 +197,7 @@ body:has(.headerItem:hover) .cursorCustom{
 }
 
 .name_sec h2{
-    font-weight: 300;
-    text-transform: uppercase;
+    font-weight: 200;
 }
 /* .glowObject{
     position: absolute;
@@ -217,27 +219,37 @@ body:has(.headerItem:hover) .cursorCustom{
 .aboutSec{
     display: flex;
     padding: 10%;
+    padding-left: 0;
 }
 .aboutSecHeading{
-    padding-right: 5%;
+    position: absolute;
+    height: 80em;
+    width: 25em;
+    left: -5%;
 }
-.aboutSecHeading ul{
+.aboutSecHeading h1{
     position: sticky;
-    top: 30%;
-    bottom: 500px;
-    margin: 0;
-    text-align: right;
-    list-style-type: none;
-    color: #EEE7DA;
+    top: 25%;
+    margin: -10% 0 0 0;
+    color: #eee7da19;
     font-family: 'Roseritta', sans-serif;
     font-size: 5em;
     font-weight: 400;
+    transform: rotateZ(-90deg) translate(-50%,-50%);
+}
+.profileImage{
+    position: sticky;
+    top: 30%;
+    margin: 0 5% 0 20%;
+    height: 400px;
+    background: linear-gradient(to top left, #EEE7DA, transparent 50%);
+    /* transform: scaleX(-1); */
+    /* filter: grayscale(0.5); */
 }
 .aboutSecText{
-    float: right;
     height: 100em;
-    padding-right: 20%;
-    text-align: justify;
+    padding-right: 10%;
+    /* text-align: justify; */
 }
 .aboutSecText p{
     position: sticky;
@@ -260,14 +272,6 @@ body:has(.headerItem:hover) .cursorCustom{
 @keyframes scrollReveal{
     to{background-size: 150% 100%;}
 }
-.profileImage{
-    position: sticky;
-    top: 30%;
-    right: 15%;
-    height: 200px;
-    background-color: #EEE7DA;
-    filter: grayscale(0.5);
-}
 .space{
     background-color: #191919;
 }
@@ -284,4 +288,3 @@ body:has(.headerItem:hover) .cursorCustom{
     font-size: 14em;
     font-family: 'Roseritta', sans-serif;
 }
-                

@@ -26,24 +26,40 @@ requestAnimationFrame(raf);
 
 //Local Time
 function localTimeUpdate(){
-  let timePeriod = "AM";
+  let timePeriod = "PM";
   let date = new Date();
   let localHours = date.getUTCHours() + 5;
   let localMinutes = date.getUTCMinutes() + 30;
   if(localMinutes>59){
     localHours += 1;
     localMinutes -= 60;
-    if(localMinutes<10){localMinutes = "0".concat(localMinutes)}
+    if(localMinutes<10){localMinutes = "0" + localMinutes}
   }
-  if(localHours>12){
-    timePeriod = "PM";
-    localHours -= 12;
-    if(localHours<10){localHours = "0".concat(localHours)}
+  if(localHours<12||localHours>23){
+    timePeriod = "AM";
   }
-  let shortLocalTime = "".concat(localHours,":",localMinutes," ",timePeriod," GMT +5:30")
+  if(localHours > 12){
+    localHours = localHours - 12;
+    if(localHours<10){localHours = "0" + localHours};
+  }
+    const shortLocalTime = `${localHours}:${localMinutes} ${timePeriod} GMT +5:30`;
   document.querySelector(".header_LocalTime").innerText = shortLocalTime;
-  console.log(localHours);
 }
+// function localTimeUpdate() {
+//   const date = new Date();
+//   let localHours = (date.getUTCHours() + 5 + Math.floor(date.getUTCMinutes() / 60)) % 12 || 12;
+//   let localMinutes = (date.getUTCMinutes() + 30) % 60;
+//   const timePeriod = date.getUTCHours() >= 12 ? "PM" : "AM";
+
+//   if (localMinutes < 10) {
+//     localMinutes = "0" + localMinutes;
+//   }
+
+//   const shortLocalTime = `${localHours}:${localMinutes} ${timePeriod} GMT +5:30`;
+//   document.querySelector(".header_LocalTime").innerText = shortLocalTime;
+//   console.log(date.getUTCHours());
+// }
+
 setInterval(localTimeUpdate, 1000);
 
 // //Shuffle Effect
