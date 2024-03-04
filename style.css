@@ -22,17 +22,6 @@ body{
     scroll-behavior: smooth;
     font-family: 'Poppins',sans-serif;
 }
-/* .loader{
-    display: inline;
-    position: fixed;
-}
-.loaderItem{
-    position: relative;
-    height: 100px;
-    width: 300px;
-    background: linear-gradient(to left, white, black);
-    z-index: 99;
-} */
 
 .square{
     position: absolute;
@@ -52,16 +41,6 @@ body{
     right: 20%;
     transform: rotate(135deg);
 }
-.line{
-    position: absolute;
-    height: 500px;
-    width: 50px;
-    background: rgba(105, 105, 105, 0.2);
-    top:-100px;
-    left: 300px;
-    transform: rotate(30deg);
-}
-
 .cursorCustom{
     background-color: transparent;
     width: 40px;
@@ -77,14 +56,6 @@ body{
     z-index: 10;
     transition: background-color 100ms ease, height 300ms ease, width 300ms ease;
 }
-/* .glassBackdrop{
-    position: fixed;
-    height: 200%;
-    width: 200%;
-    top:-50%;
-    backdrop-filter: blur(100px);
-    z-index: 1;
-} */
 .header{
     position: absolute;
     display: flex;
@@ -108,6 +79,7 @@ body:has(.headerItem:hover) .cursorCustom{
     top: 50%;
     display: flex;
     transform: translate(0, -50%);
+    z-index: 5;
 }
 .navigation::before{
     content: " ";
@@ -199,79 +171,54 @@ body:has(.nav_text:hover) .cursorCustom{
 .name_sec h2{
     font-weight: 200;
 }
-/* .glowObject{
-    position: absolute;
-    left: -100px;
-    top: 40%;
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    z-index: 0;
-    opacity: 0.7;
-    background: linear-gradient(to left,#c8a834, white);
-    animation: pulsating-nameSec 5s linear infinite; 
-}
-@keyframes pulsating-nameSec{
-    0%{ rotate: 0deg;}
-    50%{scale: 1 1.5;}
-    100%{ rotate: 360deg;}
-} */
 .aboutSec{
     display: flex;
     padding: 10%;
     padding-left: 0;
 }
-.aboutSecHeading{
-    position: absolute;
-    height: 80em;
-    width: 25em;
-    left: -5%;
-}
-.aboutSecHeading h1{
-    position: sticky;
-    top: 25%;
-    margin: -10% 0 0 0;
-    color: #eee7da19;
-    font-family: 'Roseritta', sans-serif;
-    font-size: 5em;
-    font-weight: 400;
-    transform: rotateZ(-90deg) translate(-50%,-50%);
-}
 .profileImage{
     position: sticky;
-    top: 30%;
-    margin: 0 5% 0 20%;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     height: 400px;
-    background: linear-gradient(to top left, #EEE7DA, transparent 50%);
+    background-color: #eee7da10;
+    border-radius: 25px;
+    /* background: linear-gradient(to top left, #EEE7DA, transparent 50%); */
     /* transform: scaleX(-1); */
     /* filter: grayscale(0.5); */
 }
+
 .aboutSecText{
     height: 100em;
-    padding-right: 10%;
-    /* text-align: justify; */
+    width: 25%;
+    padding: 10%;
+    text-align: justify;
 }
 .aboutSecText p{
     position: sticky;
-    top: 30%;
+    top: 50%;
+    transform: translateY(-50%);
     margin: 0;
-    font-size: 1.4em;
-    display: inline;
-    font-weight: 300;
-    color: rgba(105, 105, 105, 0.2);
-    /* color: transparent; */
-    background-image: linear-gradient(#EEE7DA, #EEE7DA);
-    background-clip: text;
-    background-repeat: no-repeat;
-    background-size: 0% 100%;
-    animation: scrollReveal linear forwards;
-    animation-timeline: view();
-    animation-range-start: entry 220%;
-    animation-range-end: exit 100%;
+    font-size: 1.1em;
+    font-weight: 200;
+    color: #EEE7DA;
 }
 @keyframes scrollReveal{
-    to{background-size: 150% 100%;}
+    to{background-size: 250% 100%;}
 }
+.aboutSecText p:after{
+    content: "WHO AM I?";
+    position: absolute;
+    width: 10em;
+    bottom: -100px;
+    left: 200px;
+    font-size: 6em;
+    font-family: 'Roseritta', sans-serif;
+    font-weight: 600;
+    color: rgba(105, 105, 105, 0.2);
+}
+
 .space{
     background-color: #191919;
 }

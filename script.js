@@ -38,45 +38,9 @@ function localTimeUpdate(){
   if(localHours<12||localHours>23){
     timePeriod = "AM";
   }
-  if(localHours > 12){
-    localHours = localHours - 12;
-    if(localHours<10){localHours = "0" + localHours};
-  }
-    const shortLocalTime = `${localHours}:${localMinutes} ${timePeriod} GMT +5:30`;
+  localHours = localHours%12;
+  if(localHours == 0){localHours = 12}
+  const shortLocalTime = `${localHours}:${localMinutes} ${timePeriod} GMT +5:30`;
   document.querySelector(".header_LocalTime").innerText = shortLocalTime;
 }
-// function localTimeUpdate() {
-//   const date = new Date();
-//   let localHours = (date.getUTCHours() + 5 + Math.floor(date.getUTCMinutes() / 60)) % 12 || 12;
-//   let localMinutes = (date.getUTCMinutes() + 30) % 60;
-//   const timePeriod = date.getUTCHours() >= 12 ? "PM" : "AM";
-
-//   if (localMinutes < 10) {
-//     localMinutes = "0" + localMinutes;
-//   }
-
-//   const shortLocalTime = `${localHours}:${localMinutes} ${timePeriod} GMT +5:30`;
-//   document.querySelector(".header_LocalTime").innerText = shortLocalTime;
-//   console.log(date.getUTCHours());
-// }
-
 setInterval(localTimeUpdate, 1000);
-
-// //Shuffle Effect
-// const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-// document.querySelector(".shuffleText").onmouseover = event => {
-//   let iterations = 0;
-
-//   const interval = setInterval(() => {
-//   event.target.innerText = event. target.innerText.split("").map((letter, index) => {
-//     if(index < iterations){
-//       return event.target.dataset.value[index];
-//     }
-//     return letters[Math.floor(Math.random()*26)]}).join("");
-  
-//   if(iterations >= event.target.dataset.value.length) clearInterval(interval);
-
-//   iterations +=1/3;
-// }, 50);
-// }
