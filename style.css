@@ -11,14 +11,19 @@
     background-color: #EEE7DA;
     color: #191919;
 }
+.userSelectNone{
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
 html{
     cursor: none; /*removes cursor on webpage */
     -webkit-font-smoothing: antialiased;
 }
 body{
     margin: 0;
-    /* overflow-x: hidden; */
     background: #191919;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     font-family: 'Poppins',sans-serif;
 }
@@ -69,6 +74,9 @@ body{
 .headerItem ul{
     list-style-type: none;
 }
+.headerItem li:nth-child(1){
+    color: #EEE7DA7D !important;
+}
 body:has(.headerItem:hover) .cursorCustom{
     background-color: #EEE7DA;
     mix-blend-mode: difference;
@@ -84,7 +92,7 @@ body:has(.headerItem:hover) .cursorCustom{
 .navigation::before{
     content: " ";
     position: absolute;
-    background: linear-gradient(to top,#EEE7DA, transparent 40%);
+    background: linear-gradient(to top,#EEE7DA7d, transparent 40%);
     height: 200%;
     width: 1.5px;
     top: -210%;
@@ -93,7 +101,7 @@ body:has(.headerItem:hover) .cursorCustom{
 .navigation::after{
     content: " ";
     position: absolute;
-    background: linear-gradient(to bottom,#EEE7DA, transparent 40%);
+    background: linear-gradient(to bottom,#EEE7DA7d, transparent 40%);
     height: 200%;
     width: 1.5px;
     bottom: -210%;
@@ -109,11 +117,12 @@ body:has(.headerItem:hover) .cursorCustom{
 }
 .nav_text{
     float: right;
-    color: #EEE7DA;
+    color: #EEE7DA7d;
     font-size: 1.5em;
     font-family: 'Roseritta', sans-serif;
     transition: 200ms ease;
     display: flex;
+    background-color: transparent;
 }
 .nav_text::after{
     content: " ";
@@ -139,12 +148,12 @@ body:has(.nav_text:hover) .cursorCustom{
     padding: 10%;
     color: #EEE7DA;
     list-style-type: none;
-    animation: fadeout-name_sec linear forwards;
+    /* animation: fadeout-name_sec linear forwards;
     animation-timeline: view();
     animation-range-start: exit;
-    animation-range-end: exit 300px;
+    animation-range-end: exit 300px; */
 }
-@keyframes fadeout-name_sec{
+/* @keyframes fadeout-name_sec{
     to{opacity: 0;}
 }
 .name_mainText, .name_mainText h2{
@@ -155,7 +164,7 @@ body:has(.nav_text:hover) .cursorCustom{
 }
 @keyframes fadeout-name_mainText{
     to{transform:translateY(20%) ;}
-}
+} */
 .name_mainText{
     font-size: 6.5em;
     width: 50%;
@@ -171,43 +180,73 @@ body:has(.nav_text:hover) .cursorCustom{
 .name_sec h2{
     font-weight: 200;
 }
-.aboutSec{
-    display: flex;
-    padding: 10%;
-    padding-left: 0;
+.aboutSecHeadingOuter{
+    overflow: hidden;
+    max-width: 100%;
 }
-.profileImage{
-    position: sticky;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    height: 400px;
-    background-color: #eee7da10;
-    border-radius: 25px;
-    /* background: linear-gradient(to top left, #EEE7DA, transparent 50%); */
-    /* transform: scaleX(-1); */
-    /* filter: grayscale(0.5); */
+.aboutSecHeading{
+    margin-top: 8%;
+    display: flex;
+    position: absolute;
+}
+.filledHeading{
+    color: #EEE7DA !important;
+}
+.aboutSecHeading li{
+    font-family: 'Roseritta', sans-serif;
+    font-size: 6em;
+    list-style: none;
+    color: transparent;
+    margin: 5px;
+    -webkit-text-stroke: 0.3px #EEE7DA;
+}
+.introSec{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 10%;
+    margin-top: 25%;
 }
 
-.aboutSecText{
-    height: 100em;
+.initialsAbout{
+    position: absolute;
+    font-family: 'Roseritta', sans-serif;
+    text-align: left;
+    left: 0;
     width: 25%;
-    padding: 10%;
-    text-align: justify;
+    margin-top: -5%;
+    font-size: 5em;
+    color: rgba(105, 105, 105, 0.5);
 }
-.aboutSecText p{
-    position: sticky;
-    top: 50%;
-    transform: translateY(-50%);
+.profileImage{
+    position: absolute;
+    margin-top: -15%;
+    right: -100px;
+    height: 550px;
+    /* background-color: #eee7da10; */
+    border-radius: 25px;
+}
+
+.introSecText{
+    width: 40%;
+    margin: 0 5%;
+    padding: 2% 0;
+    text-align: justify;
+    /* border-bottom: 1px solid #EEE7DA; */
+}
+.introSecText::before{
+    content: "";
+
+}
+.introSecText p{
+    tab-size: 8;
     margin: 0;
-    font-size: 1.1em;
+    font-size: 0.9em;
     font-weight: 200;
     color: #EEE7DA;
 }
-@keyframes scrollReveal{
-    to{background-size: 250% 100%;}
-}
-.aboutSecText p:after{
+
+/* .aboutSecText p:after{
     content: "WHO AM I?";
     position: absolute;
     width: 10em;
@@ -217,10 +256,11 @@ body:has(.nav_text:hover) .cursorCustom{
     font-family: 'Roseritta', sans-serif;
     font-weight: 600;
     color: rgba(105, 105, 105, 0.2);
-}
+} */
 
 .space{
     background-color: #191919;
+    height: 1000px;
 }
 .footercon{
     position: relative;
