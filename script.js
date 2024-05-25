@@ -44,3 +44,19 @@ function localTimeUpdate(){
   document.querySelector(".header_LocalTime").innerText = shortLocalTime;
 }
 setInterval(localTimeUpdate, 1000);
+
+// About Section Heading - Horizontal Scroll => Direction: Left
+let aSh = document.querySelector(".aboutSecHeading");
+ window.onscroll = () =>{
+  let pos = window.scrollY;
+  aSh.style.left = `-${pos}px`;
+ };
+
+//  Landing Page Content Fade Out
+ $(window).scroll(function(){
+    $(".fadeoutLanding").css("opacity", 1 - $(window).scrollTop()/400);
+ });
+
+ document.querySelector('#about').addEventListener('click', function(){
+  document.querySelector('.aboutSecHeading').scrollIntoView(true);
+});
