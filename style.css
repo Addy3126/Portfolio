@@ -221,7 +221,7 @@ body:has(.nav_text:hover) .cursorCustom{
 .profileImage{
     position: absolute;
     margin-top: -15%;
-    right: -250px;
+    right: -100px;
     height: 550px;
     /* background-color: #eee7da10; */
     border-radius: 25px;
